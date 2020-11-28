@@ -4,27 +4,6 @@ const Schema = mongoose.Schema;
 require('mongoose-currency').loadType(mongoose);
 const Currency = mongoose.Types.Currency;
 
-const commentSchema = new Schema({
-    rating: {
-        type: Number,
-        min: 1,
-        max: 5,
-        required: true
-    },
-    text: {
-        type: String,
-        required: true
-    },
-    author: {
-        type: String,
-        required: true
-    }
-}, {
-    timestamps: true
-});
-
-
-
 const promotionSchema = new Schema({
     name: {
         type: String,
@@ -47,8 +26,7 @@ const promotionSchema = new Schema({
     description: {
         type: String,
         required: true
-    },
-    comments: [commentSchema]
+    }
 }, {
     timestamps: true
 });
