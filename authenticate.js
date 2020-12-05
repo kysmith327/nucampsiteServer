@@ -37,5 +37,5 @@ exports.jwtPassport = passport.use(
         }
     )
 );
-
+exports.verifyAdmin = passport.authenticate('jwt', {admin: req.user.admin});
 exports.verifyUser = passport.authenticate('jwt', {session: false});
