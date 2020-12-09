@@ -15,7 +15,14 @@ campsiteRouter.route('/')
     })
     .catch(err => next(err));
 })
-.post(authenticate.verifyUser, (req, res, next) => {
+.post([authenticate.verifyUser, authenticate.verifyAdmin], (req, res, next) => {
+    if (req.user.admin){
+        next();
+    }
+    else{
+        
+    }
+
     Campsite.create(req.body)
     .then(campsite => {
         console.log('Campsite Created ', campsite);
