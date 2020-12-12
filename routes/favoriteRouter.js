@@ -130,12 +130,12 @@ favoriteRouter.route('/:campsiteId')
                 favorite.splice(index, 1);
             }
             favorite.save()
-            .this(favorite => {
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'application/json');
-                res.json(favorite);
-            })
-            .catch(err => next(err));
+                .this(favorite => {
+                    res.statusCode = 200;
+                    res.setHeader('Content-Type', 'application/json');
+                    res.json(favorite);
+                })
+                .catch(err => next(err));
             
         }else{
             res.setHeader('Content-Type', 'text/plain');
