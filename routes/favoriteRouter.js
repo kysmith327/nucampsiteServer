@@ -47,9 +47,7 @@ favoriteRouter.route('/')
                     res.json(favorite);
                 })
                 .catch(err => next(err));
-            }
-                
-                
+            }       
         })
     .catch(err => next(err));
 })
