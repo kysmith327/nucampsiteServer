@@ -125,14 +125,10 @@ favoriteRouter.route('/:campsiteId')
     Favorite.findOne({user: req.user._id })
     .then(favorite => {
         if (favorite){
-            favorite.campsite.forEach(element => {
-                if (req.params.campsiteId === element._id){
-                    const index = favorite.indexOf(element);
-                    if (index > -1){
-                        favorite.splice(index, 1);
-                    }
-                }
-            })
+            const index = favorite.campsites.indexOf(req.params.campsiteId);
+            if (index > -1){
+                favorite.splice(index, 1);
+            }
             favorite.save()
             .this(favorite => {
                 res.statusCode = 200;
